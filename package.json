@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/WebSpecialForces/portfolioAzizmuradov/issues"
   },
-  "homepage": "https://github.com/WebSpecialForces/portfolioAzizmuradov#readme"
+  "homepage": "https://github.com/WebSpecialForces/portfolioAzizmuradov#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
