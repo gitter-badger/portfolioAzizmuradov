@@ -9,14 +9,13 @@ var gulp = require('gulp'),
 	assets = require ('postcss-assets'),
 	short = require('postcss-short')
 	handlebars = require('gulp-handlebars'),
-	wrap = require('gulp-wrap'),
-	declare = require('gulp-declare'),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat')
+	gulpHandlebars = require('gulp-compile-handlebars')(handlebars);
 
 gulp.task('default', ['dev']);
 gulp.task('dev', ['build-dev', 'browser-sync', 'watch']);
 
-gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts', 'templates']);
+gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts', 'handl']);
 
 gulp.task('css-dev', function () {
 	var processors = [
@@ -67,14 +66,8 @@ gulp.task('scripts', function () {
 		.pipe(gulp.dest('./build/scripts/'));
 });
 
-gulp.task('templates', function(){
-  gulp.src('src/templates/*.hbs')
-    .pipe(handlebars())
-    .pipe(wrap('Handlebars.template(<%= contents %>)'))
-    .pipe(declare({
-      namespace: 'MyApp.templates',
-      noRedeclare: true,  
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest('build/js/'));
+gulp.task('handl', function () {
+    return gulp.src('./src/*.handlebars')
+        .pipe(rename('handl.html'))
+        .pipe(gulp.dest('./build/'));
 });
