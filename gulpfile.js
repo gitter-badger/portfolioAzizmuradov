@@ -7,12 +7,16 @@ var gulp = require('gulp'),
 	rename = require ('gulp-rename'),
 	postcss = require('gulp-postcss'),
 	assets = require ('postcss-assets'),
-	short = require('postcss-short');
+	short = require('postcss-short')
+	handlebars = require('gulp-handlebars'),
+	wrap = require('gulp-wrap'),
+	declare = require('gulp-declare'),
+	concat = require('gulp-concat');
 
 gulp.task('default', ['dev']);
 gulp.task('dev', ['build-dev', 'browser-sync', 'watch']);
 
-gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts']);
+gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts', 'templates']);
 
 gulp.task('css-dev', function () {
 	var processors = [
@@ -61,4 +65,16 @@ gulp.task('scripts', function () {
 	return gulp.src('./src/scripts/*.js')
 		.pipe(concat('bundle.js'))
 		.pipe(gulp.dest('./build/scripts/'));
+});
+
+gulp.task('templates', function(){
+  gulp.src('src/templates/*.hbs')
+    .pipe(handlebars())
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'MyApp.templates',
+      noRedeclare: true,  
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/js/'));
 });
