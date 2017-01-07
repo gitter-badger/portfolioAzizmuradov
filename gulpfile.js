@@ -1,21 +1,21 @@
-var gulp = require('gulp'),
-	concat = require('gulp-concat'),
-	cssnano = require('gulp-cssnano'),
-	clean = require('gulp-clean'),
-	browserSync = require('browser-sync').create(),
-	autoprefixer = require('gulp-autoprefixer'),
-	rename = require ('gulp-rename'),
-	postcss = require('gulp-postcss'),
-	assets = require ('postcss-assets'),
-	short = require('postcss-short')
-	handlebars = require('gulp-handlebars'),
-	concat = require('gulp-concat')
-	gulpHandlebars = require('gulp-compile-handlebars')(handlebars);
+var gulp = require('gulp');
+var	concat = require('gulp-concat');
+var	cssnano = require('gulp-cssnano');
+var	clean = require('gulp-clean');
+var	browserSync = require('browser-sync').create();
+var	autoprefixer = require('gulp-autoprefixer');
+var	rename = require ('gulp-rename');
+var	postcss = require('gulp-postcss');
+var	assets = require ('postcss-assets');
+var	short = require('postcss-short');
+var	handlebars = require('gulp-handlebars');
+var	concat = require('gulp-concat');
+var	gulpHandlebars = require('gulp-compile-handlebars')(handlebars);
 
 gulp.task('default', ['dev']);
 gulp.task('dev', ['build-dev', 'browser-sync', 'watch']);
 
-gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts', 'handl']);
+gulp.task('build-dev', ['html', 'css-dev', 'assets', 'scripts', 'handlebars']);
 
 gulp.task('css-dev', function () {
 	var processors = [
@@ -66,8 +66,8 @@ gulp.task('scripts', function () {
 		.pipe(gulp.dest('./build/scripts/'));
 });
 
-gulp.task('handl', function () {
+gulp.task('handlebars', function () {
     return gulp.src('./src/*.handlebars')
-        .pipe(rename('handl.html'))
+        .pipe(rename('handlebars.html'))
         .pipe(gulp.dest('./build/'));
 });
