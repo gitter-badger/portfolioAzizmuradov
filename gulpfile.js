@@ -8,9 +8,8 @@ var	rename = require ('gulp-rename');
 var	postcss = require('gulp-postcss');
 var	assets = require ('postcss-assets');
 var	short = require('postcss-short');
-var	handlebars = require('gulp-handlebars');
 var	concat = require('gulp-concat');
-var	gulpHandlebars = require('gulp-compile-handlebars')(handlebars);
+var handlebars = require('gulp-compile-handlebars');
 
 gulp.task('default', ['dev']);
 gulp.task('dev', ['build-dev', 'browser-sync', 'watch']);
@@ -67,7 +66,11 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('handlebars', function () {
-    return gulp.src('./src/*.handlebars')
-        .pipe(rename('handlebars.html'))
-        .pipe(gulp.dest('./build/'));
+	var options = {
+		batch : ['./src/partials/']
+	};
+	return gulp.src('./src/index.hbs')
+		.pipe(handlebars({}, options))
+		.pipe(rename('hello.html'))
+		.pipe(gulp.dest('./build/'));
 });
