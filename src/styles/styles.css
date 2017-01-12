@@ -1,0 +1,9 @@
+body {
+	background: url('../assets/img/Background.png');
+	background-size: cover; 
+}
+.cont {
+	width: 200px;
+	background: lightgreen;
+	height: 200px;
+}
