@@ -6,8 +6,13 @@
   "scripts": {
     "eslint": "eslint src/scripts/scripts.js || true",
     "stylelint": "stylelint src/styles/styles.css || true",
-    "lint" : "npm run eslint && npm run stylelint"
+    "lint": "npm run eslint && npm run stylelint"
   },
+
+    "pre-commit": [
+    "lint"
+  ],
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebSpecialForces/portfolioAzizmuradov.git"
@@ -35,6 +40,7 @@
     "gulp-rename": "^1.2.2",
     "postcss-assets": "^4.1.0",
     "postcss-short": "^3.0.2",
+    "pre-commit": "^1.2.2",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0"
   }
