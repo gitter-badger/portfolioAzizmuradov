@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint src/scripts/scripts.js || true",
-    "stylelint": "stylelint src/styles/styles.css || true"
+    "stylelint": "stylelint src/styles/styles.css || true",
+    "lint" : "npm run eslint && npm run stylelint"
   },
   "repository": {
     "type": "git",
