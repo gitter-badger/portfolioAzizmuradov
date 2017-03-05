@@ -4,8 +4,8 @@
   "description": "Сайт портфолио",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint src/scripts/scripts.js || true",
-    "stylelint": "stylelint src/styles/styles.css || true",
+    "eslint": "eslint src/scripts/scripts.js || false",
+    "stylelint": "stylelint src/styles/styles.css || false",
     "lint": "npm run eslint && npm run stylelint"
   },
 
