@@ -6,14 +6,13 @@ ul {
 }
 
 .wrapper {
-  background: linear-gradient(45deg, #8E8E90, #fff);
+  background: linear-gradient(45deg, #8e8e90, #fff);
 }
 
 .main {
   height: 100vh;
   width: 90%;
   margin: 0 auto;
-
 }
 
 .main_photo {
@@ -24,7 +23,7 @@ ul {
   background-size: 150%;
   background-repeat: no-repeat;
   background-position: 100% 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .links {
