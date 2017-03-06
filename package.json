@@ -10,7 +10,6 @@
   },
 
     "pre-commit": [
-    "lint"
   ],
 
   "repository": {
