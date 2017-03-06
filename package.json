@@ -4,8 +4,15 @@
   "description": "Сайт портфолио",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint src/scripts/scripts.js || false",
+    "stylelint": "stylelint src/styles/styles.css || false",
+    "lint": "npm run eslint && npm run stylelint"
   },
+
+    "pre-commit": [
+    "lint"
+  ],
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebSpecialForces/portfolioAzizmuradov.git"
@@ -18,6 +25,11 @@
   "homepage": "https://github.com/WebSpecialForces/portfolioAzizmuradov#readme",
   "devDependencies": {
     "browser-sync": "^2.18.5",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean": "^0.3.2",
@@ -27,6 +39,9 @@
     "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",
     "postcss-assets": "^4.1.0",
-    "postcss-short": "^3.0.2"
+    "postcss-short": "^3.0.2",
+    "pre-commit": "^1.2.2",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0"
   }
 }
